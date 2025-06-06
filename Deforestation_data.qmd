@@ -1,0 +1,52 @@
+---
+title: "Deforestation_data"
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(tidyverse)
+library(readxl)
+library(ggplot2)
+
+Figure1 <- read.csv("def_area_2004_2019.csv")
+Figure2 <- read.csv("Amazonas_pop.csv")
+```
+
+```{r}
+Figure1
+```
+
+```{r}
+Figure2
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+Figure1 |>
+    ggplot(mapping = aes(x = Ano.Estados, y = AM)) +
+    geom_point() +
+    geom_line()
+  
+    labs(y = "Amount of Deforestation", 
+         x = "Year",
+         title = "Figure 1",)
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+Figure2 |>
+    ggplot(mapping = aes(x = year, y = population)) +
+    geom_point() +
+    geom_line()
+  
+    labs(y = "Population", 
+         x = "Year",
+         title = "Figure 2",)
+```
+
